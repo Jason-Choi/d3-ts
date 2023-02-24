@@ -1,6 +1,6 @@
 import { effect } from "@preact/signals-core";
 import * as d3 from "d3";
-import { ContainerElement, ZoomTransform } from "d3";
+import { ZoomTransform } from "d3";
 import { render } from "lit";
 import { data, selected } from "../store";
 
