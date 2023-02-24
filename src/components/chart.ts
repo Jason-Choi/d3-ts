@@ -1,3 +1,16 @@
+// Modified source copyright
+// Copyright 2023 Jason Choi
+// Released under the BSD 3-Clause 'New' or 'Revised' License
+
+/// Modified source copyright
+// Copyright 2022 Takanori Fujiwara.
+// Released under the BSD 3-Clause 'New' or 'Revised' License
+
+/// Original source copyright
+// Copyright 2020 Observable, Inc.
+// Released under the ISC license.
+// https://observablehq.com/@d3/scatterplot-tour
+
 import { effect } from "@preact/signals-core";
 import * as d3 from "d3";
 import { ZoomTransform } from "d3";
