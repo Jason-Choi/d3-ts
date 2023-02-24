@@ -7,7 +7,7 @@ Boilerplate for developing D3-based data visualization. You can reactively re-re
 
 [Demo with Scatterplot Tour Visualization](https://git.jasonchoi.dev/reactive-d3-boilerplate)
 
-## Packages
+## Details
 
 - [Vite](https://vitejs.dev/) for bundling
 - [D3](https://d3js.org/) for visualization component
