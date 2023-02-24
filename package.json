@@ -7,7 +7,7 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
-        "deploy": "gh-pages -d dist"
+        "deploy": "touch dist/.nojekyll && gh-pages -d dist --dotfiles"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.13",

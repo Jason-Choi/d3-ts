@@ -96,12 +96,10 @@ export class Chart {
     }
 
     render() {
-        console.log("render")
         render(this.svg.node()!, this.container);
     }
 
     update() {
-        console.log("update")
         const gx: d3.Selection<SVGGElement, any, any, any> = this.svg.select(`.x-axis`);
         const gy: d3.Selection<SVGGElement, any, any, any> = this.svg.select(`.y-axis`);
         const g = this.svg.select(".g");
