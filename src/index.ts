@@ -1,70 +1,69 @@
-import { effect } from "@preact/signals-core";
-import "./index.scss";
+import "./index.css";
 
 import { html, render } from "lit";
 import { map } from "lit/directives/map.js";
 
-import json from "./weather.json";
-
-import barChart from "./components/barChart";
+import { Chart } from "./components/chart";
 import footer from "./components/footer";
 import header from "./components/header";
-import { selected, visualizeData } from "./store";
+
+import { range } from "d3";
+import { selected } from "./store";
+import {effect} from "@preact/signals-core"
+
 
 const root = document.getElementById("app")!;
 
-effect(() => {
-  const data: Table<{ weather: Utf8; cnt: Int32 }> = await conn.query(`
-        SELECT weather, count(*)::INT as cnt
-        FROM weather.json
-        WHERE location = '${selected.value}'
-        GROUP BY weather
-        ORDER BY cnt DESC
-    `);
+interface Option {
+  name: string;
+  value: number;
+}
 
-  const X = data.getChild("cnt")!.toArray();
-  const Y = data
-    .getChild("weather")!
-    .toJSON()
-    .map((d: any) => `${d}`);
+const options: Option[] = [
+  { name: "Overview", value: 0 },
+  { name: "Cluster 1", value: 1 },
+  { name: "Cluster 2", value: 2 },
+  { name: "Cluster 3", value: 3 },
+];
 
-  visualizeData.value = { X, Y };
-});
-
-console.log(parquet);
-const res = await fetch(parquet);
-await db.registerFileBuffer(
-  "weather.json",
-  new Uint8Array(await res.arrayBuffer())
-);
-
-const locations: Table<{ location: Utf8 }> = await conn.query(`
-    SELECT DISTINCT location
-    FROM weather.json
-`);
-
-const handler = (location: string) => {
-  selected.value = location;
+const template = () => {
+  return html`
+    ${header()}
+    <div class="container mx-auto flex p-4 justify-center">
+      <div class="flex flex-col md:flex-col gap-4 p-4 mr-20">
+        ${map(options, (option) => {
+          const { name, value } = option;
+          return html`
+            <div class="flex flex-row gap-2 bg-base-300 p-3 rounded-md"
+                @click=${() => {
+                    selected.value = value;
+                }}
+            >
+              <input
+                type="radio"
+                name="optionradio"
+                class="radio"
+                ?checked=${selected.value === value}
+                
+              />
+              <label class="option-label">${name}</label>
+            </div>
+          `;
+        })}
+      </div>
+      <div class="min-h-[80vh] grid grid-cols-4 gap-4">
+        ${map(range(8), (i) => html`<div id="chart-container-${i}"></div>`)}
+      </div>
+    </div>
+    ${footer()}
+  `;
 };
 
-const template = () => html`
-  <div>
-    ${header()}
-
-    <div class="container">
-      <select
-        @change=${(e: any) => {
-          handler(e.target.value);
-        }}
-      >
-        ${map(
-          locations,
-          (location: { location: Utf8 }) =>
-            html`<option>${location.location}</option>`
-        )}
-      </select>
-    </div>
-    ${barChart()} ${footer()}
-  </div>
-`;
 effect(() => render(template(), root));
+
+
+// Initialize Child Components
+
+range(8).forEach((i) => {
+  new Chart(400, 400, `chart-container-${i}`);
+});
