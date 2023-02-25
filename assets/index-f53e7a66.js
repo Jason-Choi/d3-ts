@@ -46,8 +46,8 @@ var Vi=Object.defineProperty;var Bi=(t,e,n)=>e in t?Vi(t,e,{enumerable:!0,config
 </nav>
 `,Bu=document.getElementById("app"),Xu=[{name:"Overview",value:0},{name:"Cluster 1",value:1},{name:"Cluster 2",value:2},{name:"Cluster 3",value:3}],Yu=()=>Tt`
     ${Vu()}
-    <div class="container mx-auto flex p-4 justify-center">
-      <div class="flex flex-col md:flex-col gap-4 p-4 mr-20">
+    <div class="container flex flex-col sm:flex-row mx-auto p-4 justify-center">
+      <div class="flex flex-row sm:flex-col gap-4 p-4 mr-20">
         ${Sn(Xu,t=>{const{name:e,value:n}=t;return Tt`
             <div class="flex flex-row gap-2 bg-base-300 p-3 rounded-md"
                 @click=${()=>{We.value=n}}
@@ -63,7 +63,7 @@ var Vi=Object.defineProperty;var Bi=(t,e,n)=>e in t?Vi(t,e,{enumerable:!0,config
             </div>
           `})}
       </div>
-      <div class="min-h-[80vh] grid grid-cols-4 gap-4">
+      <div class="min-h-[80vh] w-full grid grid-auto-fit-[200px] gap-4">
         ${Sn(Pt(8),t=>Tt`<div id="chart-container-${t}"></div>`)}
       </div>
     </div>
