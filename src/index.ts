@@ -29,12 +29,12 @@ const options: Option[] = [
 const template = () => {
   return html`
     ${header()}
-    <div class="container flex flex-col sm:flex-row mx-auto p-4 justify-center">
-      <div class="flex flex-row sm:flex-col gap-4 p-4 mr-20">
+    <div class="container flex flex-col md:flex-row mx-auto p-4 justify-center">
+      <div class="grid grid-auto-fit-[150px] gap-2 p-4 mx-10 max-h-[200px]">
         ${map(options, (option) => {
           const { name, value } = option;
           return html`
-            <div class="flex flex-row gap-2 bg-base-300 p-3 rounded-md"
+            <button class="flex flex-row gap-2 bg-base-300 p-3 rounded-md"
                 @click=${() => {
                     selected.value = value;
                 }}
@@ -47,7 +47,7 @@ const template = () => {
                 
               />
               <label class="option-label">${name}</label>
-            </div>
+            </button>
           `;
         })}
       </div>
