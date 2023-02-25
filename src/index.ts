@@ -29,8 +29,8 @@ const options: Option[] = [
 const template = () => {
   return html`
     ${header()}
-    <div class="container mx-auto flex p-4 justify-center">
-      <div class="flex flex-col md:flex-col gap-4 p-4 mr-20">
+    <div class="container flex flex-col sm:flex-row mx-auto p-4 justify-center">
+      <div class="flex flex-row sm:flex-col gap-4 p-4 mr-20">
         ${map(options, (option) => {
           const { name, value } = option;
           return html`
@@ -51,7 +51,7 @@ const template = () => {
           `;
         })}
       </div>
-      <div class="min-h-[80vh] grid grid-cols-4 gap-4">
+      <div class="min-h-[80vh] w-full grid grid-auto-fit-[200px] gap-4">
         ${map(range(8), (i) => html`<div id="chart-container-${i}"></div>`)}
       </div>
     </div>

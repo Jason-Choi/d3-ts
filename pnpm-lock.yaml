@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@preact/signals-core': ^1.2.3
+  '@shrutibalasa/tailwind-grid-auto-fit': ^1.1.0
   '@types/d3': ^7.4.0
   autoprefixer: ^10.4.13
   d3: ^7.8.2
@@ -17,6 +18,7 @@ specifiers:
 
 dependencies:
   '@preact/signals-core': 1.2.3
+  '@shrutibalasa/tailwind-grid-auto-fit': 1.1.0
   '@types/d3': 7.4.0
   d3: 7.8.2
   lit: 2.6.1
@@ -402,6 +404,10 @@ packages:
 
   /@preact/signals-core/1.2.3:
     resolution: {integrity: sha512-Kui4p7PMcEQevBgsTO0JBo3gyQ88Q3qzEvsVCuSp11t0JcN4DmGCTJcGRVSCq7Bn7lGxJBO+57jNSzDoDJ+QmA==}
+    dev: false
+
+  /@shrutibalasa/tailwind-grid-auto-fit/1.1.0:
+    resolution: {integrity: sha512-sh/Vmdz/xTVziUF9ZYDb5YpECApdK85KXSRIJY58GzmdUuum5QBE3jqDeNMjICEVaVOSrOnp+gqUWx8A9dmZjA==}
     dev: false
 
   /@types/d3-array/3.0.4:
