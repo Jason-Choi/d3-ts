@@ -46,10 +46,10 @@ var Vi=Object.defineProperty;var Bi=(t,e,n)=>e in t?Vi(t,e,{enumerable:!0,config
 </nav>
 `,Bu=document.getElementById("app"),Xu=[{name:"Overview",value:0},{name:"Cluster 1",value:1},{name:"Cluster 2",value:2},{name:"Cluster 3",value:3}],Yu=()=>Tt`
     ${Vu()}
-    <div class="container flex flex-col sm:flex-row mx-auto p-4 justify-center">
-      <div class="flex flex-row sm:flex-col gap-4 p-4 mr-20">
+    <div class="container flex flex-col md:flex-row mx-auto p-4 justify-center">
+      <div class="grid grid-auto-fit-[150px] gap-2 p-4 mx-10 max-h-[200px]">
         ${Sn(Xu,t=>{const{name:e,value:n}=t;return Tt`
-            <div class="flex flex-row gap-2 bg-base-300 p-3 rounded-md"
+            <button class="flex flex-row gap-2 bg-base-300 p-3 rounded-md"
                 @click=${()=>{We.value=n}}
             >
               <input
@@ -60,7 +60,7 @@ var Vi=Object.defineProperty;var Bi=(t,e,n)=>e in t?Vi(t,e,{enumerable:!0,config
                 
               />
               <label class="option-label">${e}</label>
-            </div>
+            </button>
           `})}
       </div>
       <div class="min-h-[80vh] w-full grid grid-auto-fit-[200px] gap-4">
